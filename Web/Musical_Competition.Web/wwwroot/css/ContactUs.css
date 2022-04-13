@@ -1,54 +1,4 @@
-﻿.page-header {
-    position: relative;
-    margin-bottom: 45px;
-    padding: 150px 0 90px 0;
-    text-align: center;
-    background: #F7CAC9;
-}
-
-.page-header h2 {
-    position: relative;
-    color: #343148;
-    font-size: 60px;
-    font-weight: 700;
-}
-
-.page-header a {
-    position: relative;
-    padding: 0 12px;
-    font-size: 22px;
-    color: #343148;
-}
-
-.page-header a:hover {
-    color: #ffffff;
-}
-
-.page-header a::after {
-    position: absolute;
-    content: "/";
-    width: 8px;
-    height: 8px;
-    top: -2px;
-    right: -7px;
-    text-align: center;
-    color: #343148;
-}
-
-.page-header a:last-child::after {
-    display: none;
-}
-
-@media (max-width: 767.98px) {
-    .page-header h2 {
-        font-size: 35px;
-    }
-
-    .page-header a {
-        font-size: 18px;
-    }
-}
-
+﻿/*#region Contact */
 
 .contact {
     position: relative;
@@ -72,7 +22,7 @@
     font-size: 25px;
     color: #343148;
     margin-bottom: 15px;
-    border: 1px solid #F7CAC9;
+    border: 1px solid var(--main-color);
     border-radius: 50px;
 }
 
@@ -104,7 +54,7 @@
     font-size: 14px;
     font-weight: 600;
     letter-spacing: 1px;
-    color: #F7CAC9;
+    color: var(--main-color);
     background: #343148;
     border-radius: 0;
     transition: .3s;
@@ -112,7 +62,7 @@
 
 .contact .contact-form .btn:hover {
     color: #343148;
-    background: #F7CAC9;
+    background: var(--main-color);
 }
 
 .contact .help-block ul {
@@ -120,3 +70,5 @@
     padding: 0;
     list-style-type: none;
 }
+
+/*#endregion Scrollbar */

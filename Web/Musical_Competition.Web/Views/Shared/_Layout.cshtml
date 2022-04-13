@@ -1,5 +1,4 @@
-﻿@using Microsoft.AspNetCore.Http
-
+﻿
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,29 +11,53 @@
     <link rel="stylesheet" href="~/css/_Layout.css" />
     <link rel="stylesheet" href="~/Musical_Competition.Web.styles.css" />
 
+    <link href="~/lib/animate/animate.min.css" rel="stylesheet" >
+    <link href="~/lib/flaticon/font/flaticon.css" rel="stylesheet" >
+    <link href="~/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" >
+    <link href="~/lib/lightbox/css/lightbox.min.css" rel="stylesheet" >
+
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet" >
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" >
+
     @await RenderSectionAsync("Links", required: false)
 </head>
 <body>
-     <header>                  
-        @if (User.Identity.IsAuthenticated)
-        {
-            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
-                <button type="submit" class="logout">Logout</button>
-            </form>
-        }                
-        <ul class="navbar">
-            <li><a asp-controller="Home" asp-action="Index">Home</a></li>
-            <li><a asp-controller="Home" asp-action="Judges">Judges</a></li>
-            <li><a asp-controller="Home" asp-action="Dashboard">Dashboard</a></li>
-            @if (User.Identity.IsAuthenticated)
-            {
-                <li><a asp-controller="Home" asp-action="Profile">Profile</a></li>            
-            }
-            <li><a asp-controller="Home" asp-action="ContactUs">Contact Us</a></li>
-        </ul>
-        <div class="header-btn">
-            <a asp-page="/Account/Register" asp-route-SimulateSignUpButtonClick="true" class="sign-up">Register</a>
-            <a asp-page="/Account/Login" class="sign-in">Login</a>
+    <header>
+         
+        <div class="navbar navbar-expand-lg bg-dark navbar-dark">
+            <div class="container-fluid">
+                <a href="index.html" class="navbar-brand"><span>M</span>u<span>si</span>c<span>X</span></a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav ml-auto">
+                        <a class="nav-item nav-link active" asp-controller="Home" asp-action="Index">Home</a>
+                        <a class="nav-item nav-link" asp-controller="Home" asp-action="Judges">Judges</a>
+                        <a class="nav-item nav-link" asp-controller="Home" asp-action="Dashboard">Dashboard</a>
+                        <a class="nav-item nav-link" asp-controller="Home" asp-action="ContactUs">Contact Us</a>
+                        <a class="nav-item nav-link" asp-controller="Home" asp-action="Profile">Profile</a>                        
+
+                        <a class="nav-item nav-link" asp-page="/Account/Register">Register</a>                        
+                        <a class="nav-item nav-link" asp-page="/Account/Login">Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>  
+        
+        <div class="page-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h2>@ViewData["Title"]</h2>
+                    </div>
+                    <div class="col-12">
+                        <a href="">Home</a>
+                        <a href="">Contact</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
     
@@ -43,40 +66,49 @@
     </main>
     
     <footer>
-     <div class="footer wow fadeIn" data-wow-delay="0.3s">
-        <div class="container-fluid">
-            <div class="container">
-                <div class="footer-info">
-                    <a href="index.html" class="footer-logo">M<span>u</span>si<span>c</span>X</a>
-                    <h3>123 Street, New York, USA</h3>
-                    <div class="footer-menu">
-                        <p>+012 345 67890</p>
-                        <p>info@example.com</p>
-                    </div>
-                    <div class="footer-social">
-                        <a href=""><i class="fab fa-twitter"></i></a>
-                        <a href=""><i class="fab fa-facebook-f"></i></a>
-                        <a href=""><i class="fab fa-youtube"></i></a>
-                        <a href=""><i class="fab fa-instagram"></i></a>
-                        <a href=""><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="container copyright">
-                <div class="row">
-                    <div class="col-md-6">
-                        <p>&copy; <a asp-controller="Home" asp-action="Index">Musical Competition</a>, All Right Reserved.</p>
-                    </div>
-                    <div class="col-md-6">
-                        <p>Designed By <a href="https://www.instagram.com/georgikerkelov/">qwest</a></p>
+        <div class="footer wow fadeIn" data-wow-delay="0.3s">
+            <div class="container-fluid">
+                <div class="container">
+                    <div class="footer-info">
+                        @*<a href="index.html" class="footer-logo">M<span>u</span>si<span>c</span>X</a>*@
+                        <h3>123 Street, New York, USA</h3>
+                        <div class="footer-menu">
+                            <p>+012 345 67890</p>
+                            <p>info@example.com</p>
+                        </div>
+                        <div class="footer-social">
+                            <a href=""><i class="fab fa-twitter"></i></a>
+                            <a href=""><i class="fab fa-facebook-f"></i></a>
+                            <a href=""><i class="fab fa-youtube"></i></a>
+                            <a href=""><i class="fab fa-instagram"></i></a>
+                            <a href=""><i class="fab fa-linkedin-in"></i></a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            </div>
-    </div>
+                <div class="container copyright">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p>&copy; <a asp-controller="Home" asp-action="Index">Musical Competition</a>, All Right Reserved.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p>Designed By <a href="https://www.instagram.com/georgikerkelov/">qwest</a></p>
+                        </div>
+                    </div>
+                </div>
+                </div>
+        </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>    
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="~/lib/easing/easing.min.js"></script>
+    <script src="~/lib/wow/wow.min.js"></script>
+    <script src="~/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="~/lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="~/lib/lightbox/js/lightbox.min.js"></script> 
+
+    <script src="~/js/_Layout.js"></script>
 
     <script src="https://kit.fontawesome.com/1faa30c684.js" crossorigin="anonymous"></script>
 
