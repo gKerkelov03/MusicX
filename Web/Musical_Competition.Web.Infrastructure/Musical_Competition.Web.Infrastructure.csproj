@@ -22,7 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Data\Musical_Competition.Data.Models\Musical_Competition.Data.Models.csproj" />
-    <ProjectReference Include="..\..\Musical_Competition.Services.Data\Musical_Competition.Services.Data.csproj" />
+    <ProjectReference Include="..\..\Services\Musical_Competition.Services.Data\Musical_Competition.Services.Data.csproj" />
     <ProjectReference Include="..\..\Services\Musical_Competition.Services\Musical_Competition.Services.csproj" />
     <ProjectReference Include="..\Musical_Competition.Web.BindingModels\Musical_Competition.Web.BindingModels.csproj" />
     <ProjectReference Include="..\Musical_Competition.Web.ViewModels\Musical_Competition.Web.ViewModels.csproj" />

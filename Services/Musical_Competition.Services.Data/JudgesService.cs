@@ -4,6 +4,9 @@ using Musical_Competition.Data.Models;
 using Musical_Competition.Data.Repositories;
 using Musical_Competition.Services.Data.Contracts;
 using Musical_Competition.Services.Models;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Musical_Competition.Services.Data
 {

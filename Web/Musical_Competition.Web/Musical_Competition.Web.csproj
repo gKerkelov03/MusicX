@@ -26,7 +26,7 @@
     <ProjectReference Include="..\..\Common\Musical_Competition.Common\Musical_Competition.Common.csproj" />
     <ProjectReference Include="..\..\Data\Musical_Competition.Data.Models\Musical_Competition.Data.Models.csproj" />
     <ProjectReference Include="..\..\Data\Musical_Competition.Data\Musical_Competition.Data.csproj" />
-    <ProjectReference Include="..\..\Musical_Competition.Services.Data\Musical_Competition.Services.Data.csproj" />
+    <ProjectReference Include="..\..\Services\Musical_Competition.Services.Data\Musical_Competition.Services.Data.csproj" />
     <ProjectReference Include="..\..\Services\Musical_Competition.Services.Mapping\Musical_Competition.Services.Mapping.csproj" />
     <ProjectReference Include="..\..\Services\Musical_Competition.Services.Models\Musical_Competition.Services.Models.csproj" />
     <ProjectReference Include="..\..\Services\Musical_Competition.Services\Musical_Competition.Services.csproj" />

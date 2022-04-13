@@ -33,7 +33,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Musical_Competition.Web", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Musical_Competition.Web.Infrastructure", "Web\Musical_Competition.Web.Infrastructure\Musical_Competition.Web.Infrastructure.csproj", "{080042C4-33D5-48FE-83CA-DECE0621B0F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Musical_Competition.Services.Data", "Musical_Competition.Services.Data\Musical_Competition.Services.Data.csproj", "{509C6B6D-6C45-4D17-9542-6FE51C358849}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Musical_Competition.Services.Data", "Services\Musical_Competition.Services.Data\Musical_Competition.Services.Data.csproj", "{509C6B6D-6C45-4D17-9542-6FE51C358849}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
