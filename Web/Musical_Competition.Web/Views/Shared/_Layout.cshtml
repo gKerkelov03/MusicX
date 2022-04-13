@@ -1,0 +1,85 @@
+﻿@using Microsoft.AspNetCore.Http
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>@ViewData["Title"] - Musical_Competition.Web</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />   
+    <link rel="stylesheet" href="~/css/_Layout.css" />
+    <link rel="stylesheet" href="~/Musical_Competition.Web.styles.css" />
+
+    @await RenderSectionAsync("Links", required: false)
+</head>
+<body>
+     <header>                  
+        @if (User.Identity.IsAuthenticated)
+        {
+            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+                <button type="submit" class="logout">Logout</button>
+            </form>
+        }                
+        <ul class="navbar">
+            <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+            <li><a asp-controller="Home" asp-action="Judges">Judges</a></li>
+            <li><a asp-controller="Home" asp-action="Dashboard">Dashboard</a></li>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <li><a asp-controller="Home" asp-action="Profile">Profile</a></li>            
+            }
+            <li><a asp-controller="Home" asp-action="ContactUs">Contact Us</a></li>
+        </ul>
+        <div class="header-btn">
+            <a asp-page="/Account/Register" asp-route-SimulateSignUpButtonClick="true" class="sign-up">Register</a>
+            <a asp-page="/Account/Login" class="sign-in">Login</a>
+        </div>
+    </header>
+    
+    <main role="main">
+        @RenderBody()
+    </main>
+    
+    <footer>
+     <div class="footer wow fadeIn" data-wow-delay="0.3s">
+        <div class="container-fluid">
+            <div class="container">
+                <div class="footer-info">
+                    <a href="index.html" class="footer-logo">M<span>u</span>si<span>c</span>X</a>
+                    <h3>123 Street, New York, USA</h3>
+                    <div class="footer-menu">
+                        <p>+012 345 67890</p>
+                        <p>info@example.com</p>
+                    </div>
+                    <div class="footer-social">
+                        <a href=""><i class="fab fa-twitter"></i></a>
+                        <a href=""><i class="fab fa-facebook-f"></i></a>
+                        <a href=""><i class="fab fa-youtube"></i></a>
+                        <a href=""><i class="fab fa-instagram"></i></a>
+                        <a href=""><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="container copyright">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>&copy; <a asp-controller="Home" asp-action="Index">Musical Competition</a>, All Right Reserved.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p>Designed By <a href="https://www.instagram.com/georgikerkelov/">qwest</a></p>
+                    </div>
+                </div>
+            </div>
+            </div>
+    </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>    
+
+    <script src="https://kit.fontawesome.com/1faa30c684.js" crossorigin="anonymous"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

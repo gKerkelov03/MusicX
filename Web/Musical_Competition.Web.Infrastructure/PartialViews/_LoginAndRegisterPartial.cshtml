@@ -1,0 +1,68 @@
+﻿
+
+<div>
+    <h2>Musical_Competition</h2>
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form action="/Account/Register" method="post">
+                <h1>Create Account</h1>
+
+                <div class="social-container" id="social-container">
+                    <a href="#" class="social"><i class="fa fa-facebook"></i></a>
+                    <a href="#" class="social"><i class="fa fa-google-plus"></i></a>
+                    <a href="#" class="social"><i class="fa fa-linkedin"></i></a>
+                </div>
+                
+                <label for="file-upload" class="custom-file-upload">
+                    Upload profile picture
+                </label>
+                <input id="file-upload" type="file"/>
+                <input type="text" placeholder="Name" />
+                <input type="email" placeholder="Email" />
+                <input type="password" placeholder="Password" />
+                <input type="text" placeholder="Mobile" />
+
+                <input type="hidden" value="create" />
+
+                <button onclick="signUp()">Register</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form action="/Account/Login" method="post">
+                <h1>Login</h1>
+
+                <div class="social-container" id="social-container">
+                    <a href="#" class="social"><i class="fa fa-facebook"></i></a>
+                    <a href="#" class="social"><i class="fa fa-google-plus"></i></a>
+                    <a href="#" class="social"><i class="fa fa-linkedin"></i></a>
+                </div>
+
+                <span>or use your account</span>
+
+                <input type="email" placeholder="Email" />
+                <input type="password" placeholder="Password" />
+
+                <input type="hidden" value="login" />
+
+                <button onclick="signIn()">Login</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected with us please login with your personal info</p>
+                    <button class="ghost" id="signIn" onclick="signIn()">Login</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Enter your personal details and start journey with us</p>
+                    <button class="ghost" id="signUp" onclick="signUp()">Register</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    

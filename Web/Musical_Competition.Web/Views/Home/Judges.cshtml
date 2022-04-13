@@ -1,0 +1,78 @@
+﻿@model IList<JudgeViewModel>
+
+<link rel="stylesheet" href="~/css/Judges.css" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+
+@{
+    ViewData["Title"] = "Judges";
+    int allowedJudgesInOneRow = 3;
+    int fullRowsCount = Model.Count() / allowedJudgesInOneRow;
+    bool shouldHaveLastRow = Model.Count() % allowedJudgesInOneRow != 0;
+}
+
+<h2 class="title">@ViewData["Title"]</h2>
+<div class="border"></div>
+
+<div class="testimonials">
+    <div class="inner">
+
+        @for (int i = 0; i < fullRowsCount; i++)
+        {
+            <div class="row">
+
+                @for (int j = 0; j < allowedJudgesInOneRow; j++)
+                {                    
+                    var currentJudge = Model[i * allowedJudgesInOneRow + j]; 
+                    
+
+                    <div class="col">
+                        <div class="testimonial">
+                            <img src="@currentJudge.PictureUrl" alt="">
+                            <div class="name">@currentJudge.Name</div>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>
+                                @currentJudge.Description
+                            </p>
+                            <p class="hidden">@currentJudge.Id</p>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+
+        @if (shouldHaveLastRow)
+        {
+            <div class="row">
+
+                @for (int j = 0; j < Model.Count % allowedJudgesInOneRow; j++)
+                {                    
+                    var currentJudge = Model[Model.Count / allowedJudgesInOneRow + j]; 
+                    
+                    <div class="col">
+                        <div class="testimonial">
+                            <img src="@currentJudge.PictureUrl" alt="">
+                            <div class="name">@currentJudge.Name</div>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>
+                                @currentJudge.Description
+                            </p>
+                            <p class="hidden">@currentJudge.Id</p>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>
