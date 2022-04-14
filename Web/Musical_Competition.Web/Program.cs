@@ -65,7 +65,7 @@ var app = builder.Build();
 
 using var serviceScope = ((IApplicationBuilder)app).ApplicationServices.CreateScope();
 var dbContext = serviceScope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-dbContext.Database.EnsureDeleted();
+
 if (dbContext.Database.GetPendingMigrations().Any())
 {
     dbContext.Database.Migrate();
