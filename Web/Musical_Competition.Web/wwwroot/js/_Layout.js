@@ -108,3 +108,24 @@
     
 })(jQuery);
 
+let title = document.title;
+let a = "";
+
+if (title == "Home") {
+    a = document.getElementById("home-navlink");
+} else if (title == "Judges") {
+    a = document.getElementById("judges-navlink");
+} else if (title == "Dashboard") {
+    a = document.getElementById("dashboard-navlink");
+} else if (title == "Contact Us") {
+    a = document.getElementById("contacts-navlink");
+} else if (title == "Profile") {
+    a = document.getElementById("profile-navlink");
+} else if (title == "Login") {
+    a = document.getElementById("login-navlink");
+} else if (title == "Register") {
+    a = document.getElementById("register-navlink");
+}
+
+[...a.parentElement.children].forEach(link => link.classList.remove("active"));
+a.classList.add("active");

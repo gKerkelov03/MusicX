@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>@ViewData["Title"] - Musical_Competition.Web</title>
+    <title>@ViewData["Title"]</title>
 
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />   
     <link rel="stylesheet" href="~/css/_Layout.css" />
@@ -33,20 +33,20 @@
 
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav ml-auto">
-                        <a class="nav-item nav-link active" asp-controller="Home" asp-action="Index">Home</a>
-                        <a class="nav-item nav-link" asp-controller="Home" asp-action="Judges">Judges</a>
-                        <a class="nav-item nav-link" asp-controller="Home" asp-action="Dashboard">Dashboard</a>
-                        <a class="nav-item nav-link" asp-controller="Home" asp-action="ContactUs">Contact Us</a>
-                        <a class="nav-item nav-link" asp-controller="Home" asp-action="Profile">Profile</a>                        
-
-                        <a class="nav-item nav-link" asp-page="/Account/Register">Register</a>                        
-                        <a class="nav-item nav-link" asp-page="/Account/Login">Login</a>
+                        <a class="nav-item nav-link" id="home-navlink" asp-controller="Home" asp-action="Index">Home</a>
+                        <a class="nav-item nav-link" id="judges-navlink" asp-controller="Home" asp-action="Judges">Judges</a>
+                        <a class="nav-item nav-link" id="dashboard-navlink" asp-controller="Home" asp-action="Dashboard">Dashboard</a>
+                        <a class="nav-item nav-link" id="contacts-navlink" asp-controller="Home" asp-action="ContactUs">Contact Us</a>
+                        <a class="nav-item nav-link" id="profile-navlink" asp-controller="Home" asp-action="Profile">Profile</a>                        
+                                                      
+                        <a class="nav-item nav-link" id="register-navlink" asp-page="/Account/Register">Register</a>                        
+                        <a class="nav-item nav-link" id="login-navlink" asp-page="/Account/Login">Login</a>
                     </div>
                 </div>
             </div>
         </div>  
         
-        <div class="page-header">
+        <div class="page-header wow fadeInUp">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -110,8 +110,7 @@
 
     <script src="~/js/_Layout.js"></script>
 
-    <script src="https://kit.fontawesome.com/1faa30c684.js" crossorigin="anonymous"></script>
-
+    <script src="https://kit.fontawesome.com/1faa30c684.js" crossorigin="anonymous"></script>    
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

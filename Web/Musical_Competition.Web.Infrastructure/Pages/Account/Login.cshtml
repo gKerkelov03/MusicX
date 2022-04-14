@@ -2,16 +2,14 @@
 @model LoginPage
 
 @section Links {
-	<link href="~/css/Login.css" rel="stylesheet"/>
+	<link href="~/css/LoginAndRegister.css" rel="stylesheet"/>
 }
 
 @{
-    ViewData["Title"] = "Log in";
+    ViewData["Title"] = "Login";
 }
 
-@*<partial name="~/PartialViews/_LoginAndRegisterPartial.cshtml" />*@	
- 
-<div class="login-form">
+<div class="login-form wow zoomIn" data-wow-delay="0.5s">
     <section class="ftco-section">
         <div class="container">            
             <div class="row justify-content-center">
@@ -65,10 +63,6 @@
     </section>
 </div>
 
-
 @section Scripts {
-    <partial name="/PartialViews/_ValidationScriptsPartial.cshtml" />
-    <partial name="/PartialViews/_LoginAndRegisterButtonScriptsPartial.cshtml" />   
-    
-    <script src="~/js/Login.js"></script>
+    <partial name="/PartialViews/_ValidationScriptsPartial.cshtml" />          
 }
