@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\css\Admin.css" />
     <Content Remove="wwwroot\css\ContactUs.css" />
     <Content Remove="wwwroot\css\Profile.css" />
   </ItemGroup>
@@ -36,18 +37,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="wwwroot\favicon.ico">
-      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Areas\Administrator\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Include="wwwroot\css\ContactUs.css" />
+    <None Include="wwwroot\css\Admin.css" />
     <None Include="wwwroot\css\Profile.css" />
     <None Include="wwwroot\css\Judges.css" />
     <None Include="wwwroot\css\Dashboard.css" />

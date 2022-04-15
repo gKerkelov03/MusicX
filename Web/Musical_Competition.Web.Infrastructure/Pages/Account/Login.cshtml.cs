@@ -33,10 +33,8 @@ public class LoginPage : PageModel
     [TempData]
     public string ErrorMessage { get; set; }        
 
-    public async Task OnGetAsync(bool SimulateSignUpButtonClick, string returnUrl = null)
+    public async Task OnGetAsync(string returnUrl = null)
     {
-        ViewData["SimulateSignUpButtonClick"] = SimulateSignUpButtonClick;
-
         if (!string.IsNullOrEmpty(ErrorMessage))
         {
             ModelState.AddModelError(string.Empty, ErrorMessage);
@@ -77,6 +75,7 @@ public class LoginPage : PageModel
                 _logger.LogWarning("User account locked out.");
                 return RedirectToPage("./Lockout");
             }
+            if (result.IsNotAllowed) { return RedirectToPage("Error"); }
             else
             {
                 ModelState.AddModelError(string.Empty, "Invalid login attempt.");

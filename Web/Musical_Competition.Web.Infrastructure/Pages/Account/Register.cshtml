@@ -15,36 +15,46 @@
             <div class="row justify-content-center">
                 <div class="col-md-12 col-lg-10">
                     <div class="wrap d-md-flex">
-                        <div class="img" style="background-image: url(@Url.Content("https://i.pinimg.com/originals/e0/61/e2/e061e26ec4b2c415350fe280833d0e96.jpg"));"></div>                        
+                        <div class="img" style="background-image: url('https://res.cloudinary.com/donhvedgr/image/upload/v1650030402/girl_uo7fhv.jpg')"></div>                        
                         <div class="login-wrap p-4 p-md-5">
                             <div class="text-center">
                                 <div class="w-100">
                                 <h3 class="mb-4">Register</h3>
                                 </div>                                
                             </div>
-                            <form action="#" class="signin-form">
+                            <form method="post" asp-route-returnUrl=@Url.Content("~/Account/Login") class="signin-form" enctype='multipart/form-data'>
                                 <div class="form-group" id="upload-photo-container">
-                                    <label for="file-2" class="input-label">
+                                    <label asp-for="Input.ProfilePicture" class="input-label">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
                                             <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z">
                                             </path>
                                         </svg>         
                                         <span>Upload photo...</span>
                                     </label>
-                                    <input type="file" class="hidden">
+                                    <input asp-for="Input.ProfilePicture" class="hidden">
+                                    <span asp-validation-for="Input.ProfilePicture" class="text-danger"></span>
                                 </div>
                                 <div class="form-group mb-3">
-                                    <label class="label" for="name">Username</label>
-                                    <input type="text" class="form-control" placeholder="Username" required>
+                                    <label asp-for="Input.Name" class="label">Name</label>
+                                    <input asp-for="Input.Name" class="form-control" placeholder="Name">
+                                    <span asp-validation-for="Input.Name" class="text-danger"></span>
                                 </div>
                                 <div class="form-group mb-3">
-                                    <label class="label" for="password">Password</label>
-                                    <input type="password" class="form-control" placeholder="Password" required>
+                                    <label asp-for="Input.Email" class="label">Email</label>
+                                    <input asp-for="Input.Email" class="form-control" placeholder="Email">
+                                    <span asp-validation-for="Input.Email" class="text-danger"></span>
                                 </div>
                                 <div class="form-group mb-3">
-                                    <label class="label" for="confirm-password">Confirm Password</label>
-                                    <input type="password" class="form-control" placeholder="Confirm Password" required>
+                                    <label asp-for="Input.Password" class="label">Password</label>
+                                    <input asp-for="Input.Password" class="form-control" placeholder="Password">
+                                    <span asp-validation-for="Input.Password" class="text-danger"></span>
                                 </div>
+                                <div class="form-group mb-3">
+                                    <label asp-for="Input.ConfirmPassword" class="label">Confirm Password</label>
+                                    <input asp-for="Input.ConfirmPassword" class="form-control" placeholder="Confirm Password">
+                                    <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                                </div>
+                                
                                 <div class="form-group">
                                     <button type="submit" class="form-control btn btn-primary rounded submit px-3">Register</button>
                                 </div>                                

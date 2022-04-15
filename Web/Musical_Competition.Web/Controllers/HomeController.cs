@@ -1,19 +1,18 @@
-﻿namespace Musical_Competition.Web.Controllers;
-
+﻿
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System.Diagnostics;
 using Musical_Competition.Web.ViewModels;
-using Musical_Competition.Services.Data.Contracts; 
+using Musical_Competition.Services.Data.Contracts;
 using AutoMapper;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
+using static Musical_Competition.Common.GlobalConstants;
+
+namespace Musical_Competition.Web.Controllers;
 
 public class HomeController : Controller
 {
     private readonly IMapper mapper;
-    private readonly IJudgesService judgesService;    
+    private readonly IJudgesService judgesService;
 
     public HomeController(IMapper mapper, IJudgesService judgesService)
     {
@@ -23,15 +22,38 @@ public class HomeController : Controller
 
     public IActionResult Index() => View();
 
-    public async Task<IActionResult> Judges() 
+    public async Task<IActionResult> Judges()
     {
-        var asdf = await this.judgesService.GetAllAsync();
-        return View(this.mapper.Map<IEnumerable<JudgeViewModel>>(asdf).ToList()); 
+        var judges = await this.judgesService.GetAllAsync();
+        return View(this.mapper.Map<IList<JudgeViewModel>>(judges));
     }
 
     public IActionResult Dashboard() => View();
 
-    public IActionResult Profile() => View();
-
     public IActionResult ContactUs() => View();
+
+    public IActionResult Profile()
+    {
+        if (this.HttpContext.User.IsInRole(AdministratorRoleName))
+        {
+            return RedirectToAction("Admin");
+        }
+
+        if (!this.HttpContext.User.Identity.IsAuthenticated)
+        {
+            return RedirectToAction("Index");
+        }
+
+        return View();
+    }
+
+    public IActionResult Admin()
+    {
+        if (!this.HttpContext.User.IsInRole(AdministratorRoleName))
+        {
+            return RedirectToAction("Profile");
+        }
+
+        return View();        
+    }
 }

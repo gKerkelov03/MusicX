@@ -62,15 +62,9 @@
 
 .navbar-dark .navbar-nav .nav-link:hover,
 .navbar-dark .navbar-nav .nav-link.active {
-        background: rgba(256, 256, 256, .25);
-        transition: none;
-    }
-
-.navbar .dropdown-menu {
-    margin-top: 0;
-    border: 0;
-    border-radius: 0;
-    background: #f8f9fa;
+    background: rgba(256, 256, 256, .25);
+    transition: none;
+    color: var(--second-color);
 }
 
 @media (min-width: 992px) {
@@ -83,17 +77,17 @@
         z-index: 9;
     }
 
-        .navbar.nav-sticky {
-            padding: 10px 60px;
-            background: var(--second-color) !important;
-        }
+    .navbar.nav-sticky {
+        padding: 10px 60px;
+        background: var(--second-color) !important;
+    }
 
-        .navbar a.nav-link {
-            padding: 8px 15px;
-            font-size: 14px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
+    .navbar a.nav-link {
+        padding: 8px 15px;
+        font-size: 14px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
 }
 
 @media (max-width: 991.98px) {
@@ -102,17 +96,17 @@
         background: var(--second-color) !important;
     }
 
-        .navbar .navbar-brand span {
-            color: #ffffff;
-        }
+    .navbar .navbar-brand span {
+        color: var(--main-color);
+    }
 
-        .navbar a.nav-link {
-            padding: 5px;
-        }
+    .navbar a.nav-link {
+        padding: 5px;
+    }
 
-        .navbar .dropdown-menu {
-            box-shadow: none;
-        }
+    .navbar .dropdown-menu {
+        box-shadow: none;
+    }
 }
 
 /*#endregion Navbar */
@@ -124,7 +118,19 @@
     margin-bottom: 45px;
     padding: 150px 0 90px 0;
     text-align: center;
-    background: var(--main-color);
+    background: var(--main-color);   
+}
+
+#header-after {            
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;    
+    
+    background-size: 25%;
+    background-repeat: no-repeat;
+    background-position: bottom right;
 }
 
 .page-header h2 {

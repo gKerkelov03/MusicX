@@ -10,23 +10,23 @@ public class RegisterBindingModel
     [Display(Name = "Name")]
     public string Name { get; set; }
 
-    [Required]
+    [Required(ErrorMessage = "*Invalid email address")]
     [EmailAddress]
     [Display(Name = "Email")]
     public string Email { get; set; }
 
-    [Required]
-    [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+    [Required(ErrorMessage = "*Password field is required!")]    
     [DataType(DataType.Password)]
     [Display(Name = "Password")]
     public string Password { get; set; }
 
-    [DataType(DataType.Password)]
     [Display(Name = "Confirm password")]
-    [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+    [DataType(DataType.Password)]
+    [Compare("Password", ErrorMessage = "*Passwords don't match!")]
     public string ConfirmPassword { get; set; }
 
-    [Required]
+    [Required(ErrorMessage = "*Profile picture is required!")]
+    [DataType(DataType.Upload)]
     [Display(Name = "Profile picture")]
     public IFormFile ProfilePicture { get; set; }
 }

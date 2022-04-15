@@ -49,6 +49,8 @@ builder.Services
     .AddRoles<ApplicationRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
+builder.Services.AddAntiforgery(o => o.HeaderName = "XSRF-TOKEN");
+
 builder.Services.AddResponseCaching();
 builder.Services.AddResponseCompression(options => options.EnableForHttps = true);
 
