@@ -6,6 +6,24 @@
     ViewData["Title"] = "Home";
 }
 
-<span>asdfasdfasdf</span>
-<div>adsf</div>
-<p>asdfasdfasdf</p>
+<div class="countdown-container">
+    <div class="soon">
+        <p>Building Awesome Website</p>
+        <h1>COMING SOON</h1>
+        <hr>
+        <p id="launch"></p>
+    </div>
+</div>
+@for (int i = 0; i < 20; i++)
+{
+    <div class="text-center">
+        <h1 target-name="Template dev">Welcome</h1>
+
+        <partial name="/PartialViews/_SamplePartialView.cshtml" />        
+
+        <vc:sample name="almighty dev"></vc:sample>
+    </div>
+}
+@section Scripts {
+    <script src="~/js/countdown-container.js"></script>
+}

@@ -1,1 +1,43 @@
-﻿
+﻿.countdown-container {
+    background-image: url("https://res.cloudinary.com/donhvedgr/image/upload/v1650114241/streaming-microphone-over-an-orange-background-free-photo_cpzboj.jpg");
+    background-position: center;
+    background-size: cover;
+    background-color: aqua;
+    height: 100vh;
+    max-width: 75vw;
+    margin: auto;
+    box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.2), 0 5px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.soon {    
+    position: relative;
+    top: 30%;
+    max-width: 50%;    
+    color: white;
+    text-align:center;
+    margin-left: 30px;
+    font-family: 'Fira Sans', sans-serif;
+}
+
+.soon h1 {    
+    letter-spacing: 15px;   
+    word-wrap: break-word;
+}
+
+.soon hr {
+    width: 50%;
+    margin: 30px auto;
+    border: 1.5px solid white;
+}
+
+.soon p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+#launch {
+    font-size: 40px;
+    word-spacing: 20px;
+}
