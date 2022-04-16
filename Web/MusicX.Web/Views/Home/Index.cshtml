@@ -1,5 +1,5 @@
 ﻿@section Links {
-    <link rel="stylesheet" href="~/css/Index.css" />
+    <link rel="stylesheet" href="~/css/Index.css" />    
 }
 
 @{
@@ -15,16 +15,219 @@
         <div class="hr"></div>        
     </div>
 </div>
-@for (int i = 0; i < 20; i++)
-{
-    <div class="text-center">
-        <h1 target-name="Template dev">Welcome</h1>
 
-        <partial name="/PartialViews/_SamplePartialView.cshtml" />        
-
-        <vc:sample name="almighty dev"></vc:sample>
+<div class="home-page-container">
+    <div id="header-carousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active" style="height: 410px;">
+                <img class="img-fluid" src="~/assets/carousel-1.jpg" alt="Image">
+                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                    <div class="p-3" style="max-width: 700px;">
+                        <h4 class="text-light text-uppercase font-weight-medium mb-3">10% Off Your First Order</h4>
+                        <h3 class="display-4 text-white font-weight-semi-bold mb-4">Fashionable Dress</h3>
+                        <a href="" class="btn btn-light py-2 px-3">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item" style="height: 410px;">
+                <img class="img-fluid" src="~/assets/carousel-2.jpg" alt="Image">
+                <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                    <div class="p-3" style="max-width: 700px;">
+                        <h4 class="text-light text-uppercase font-weight-medium mb-3">10% Off Your First Order</h4>
+                        <h3 class="display-4 text-white font-weight-semi-bold mb-4">Reasonable Price</h3>
+                        <a href="" class="btn btn-light py-2 px-3">Shop Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#header-carousel" data-slide="prev">
+            <div class="btn btn-dark" style="width: 45px; height: 45px;">
+                <span class="carousel-control-prev-icon mb-n2"></span>
+            </div>
+        </a>
+        <a class="carousel-control-next" href="#header-carousel" data-slide="next">
+            <div class="btn btn-dark" style="width: 45px; height: 45px;">
+                <span class="carousel-control-next-icon mb-n2"></span>
+            </div>
+        </a>
     </div>
-}
+    
+    <div class="best-features">
+        <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+            <div class="section-heading">
+                <h2>About Sixteen Clothing</h2>
+            </div>
+            </div>
+            <div class="col-md-6">
+            <div class="left-content">
+                <h4>Looking for the best products?</h4>
+                <p><a rel="nofollow" href="https://templatemo.com/tm-546-sixteen-clothing" target="_parent">This template</a> is free to use for your business websites. However, you have no permission to redistribute the downloadable ZIP file on any template collection website. <a rel="nofollow" href="https://templatemo.com/contact">Contact us</a> for more info.</p>
+                <ul class="featured-list">
+                <li><a href="#">Lorem ipsum dolor sit amet</a></li>
+                <li><a href="#">Consectetur an adipisicing elit</a></li>
+                <li><a href="#">It aquecorporis nulla aspernatur</a></li>
+                <li><a href="#">Corporis, omnis doloremque</a></li>
+                <li><a href="#">Non cum id reprehenderit</a></li>
+                </ul>
+                <a href="about.html" class="filled-button">Read More</a>
+            </div>
+            </div>
+            <div class="col-md-6">
+            <div class="right-image">
+                <img src="~/assets/feature-image.jpg" alt="">
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    
+    <div class="team-members">
+        <div class="container">
+            <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                <h2>Our Team Members</h2>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="team-member">
+                <div class="thumb-container">
+                    <img src="assets/team_01.jpg" alt="">
+                    <div class="hover-effect">
+                    <div class="hover-content">
+                        <ul class="social-icons">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+                <div class="down-content">
+                    <h4>Johnny William</h4>
+                    <span>CO-Founder</span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing itaque corporis nulla.</p>
+                </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="team-member">
+                <div class="thumb-container">
+                    <img src="assets/team_02.jpg" alt="">
+                    <div class="hover-effect">
+                    <div class="hover-content">
+                        <ul class="social-icons">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+                <div class="down-content">
+                    <h4>Karry Pitcher</h4>
+                    <span>Product Expert</span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing itaque corporis nulla.</p>
+                </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="team-member">
+                <div class="thumb-container">
+                    <img src="assets/team_03.jpg" alt="">
+                    <div class="hover-effect">
+                    <div class="hover-content">
+                        <ul class="social-icons">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+                <div class="down-content">
+                    <h4>Michael Soft</h4>
+                    <span>Chief Marketing</span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing itaque corporis nulla.</p>
+                </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="team-member">
+                <div class="thumb-container">
+                    <img src="assets/team_04.jpg" alt="">
+                    <div class="hover-effect">
+                    <div class="hover-content">
+                        <ul class="social-icons">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+                <div class="down-content">
+                    <h4>Mary Cool</h4>
+                    <span>Product Specialist</span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing itaque corporis nulla.</p>
+                </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="team-member">
+                <div class="thumb-container">
+                    <img src="assets/team_05.jpg" alt="">
+                    <div class="hover-effect">
+                    <div class="hover-content">
+                        <ul class="social-icons">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+                <div class="down-content">
+                    <h4>George Walker</h4>
+                    <span>Product Photographer</span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing itaque corporis nulla.</p>
+                </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="team-member">
+                <div class="thumb-container">
+                    <img src="assets/team_06.jpg" alt="">
+                    <div class="hover-effect">
+                    <div class="hover-content">
+                        <ul class="social-icons">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+                <div class="down-content">
+                    <h4>Kate Town</h4>
+                    <span>General Manager</span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing itaque corporis nulla.</p>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 @section Scripts {
     <script src="~/js/countdown-container.js"></script>
 }
