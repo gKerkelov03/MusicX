@@ -40,13 +40,13 @@ bld/
 # Visual Studio 2017 auto generated files
 Generated\ Files/
 
-# MSMusical_Competition test Results
+# MSMusicX test Results
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
 
 # NUnit
 *.VisualState.xml
-Musical_CompetitionResult.xml
+MusicXResult.xml
 nunit-*.xml
 
 # Build Results of an ATL Project
@@ -97,7 +97,7 @@ StyleCopReport.xml
 *.svclog
 *.scc
 
-# Chutzpah Musical_Competition files
+# Chutzpah MusicX files
 _Chutzpah*
 
 # Visual C++ cache files
@@ -155,7 +155,7 @@ nCrunchTemp_*
 
 # MightyMoose
 *.mm.*
-AutoMusical_Competition.Net/
+AutoMusicX.Net/
 
 # Web workbench (sass)
 .sass-cache/

@@ -1,4 +1,4 @@
-﻿namespace Musical_CompetitionRenamer
+﻿namespace MusicXRenamer
 {
     using System;
     using System.IO;
@@ -9,7 +9,7 @@
         public static void Main()
         {
             Console.WriteLine(new string('=', 40));
-            Console.WriteLine("Musical_Competition Renamer");
+            Console.WriteLine("MusicX Renamer");
             Console.WriteLine(new string('-', 40));
             Console.WriteLine("Working in: " + Environment.CurrentDirectory);
             Console.WriteLine(new string('=', 40));

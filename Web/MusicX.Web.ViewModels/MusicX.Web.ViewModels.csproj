@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\MusicX.Common\MusicX.Common.csproj" />
+    <ProjectReference Include="..\..\Services\MusicX.Services.Mapping\MusicX.Services.Mapping.csproj" />
+    <ProjectReference Include="..\..\Services\MusicX.Services.Models\MusicX.Services.Models.csproj" />
+  </ItemGroup>
+
+</Project>
