@@ -6,7 +6,9 @@
     background-color: aqua;
     height: 100vh;
     max-width: 75vw;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
     box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.2), 0 5px 20px 0 rgba(0, 0, 0, 0.4);
     border-radius: 30px;
     overflow: hidden;
@@ -48,8 +50,34 @@
     word-spacing: 20px;
 }
 
-/*#region NonBullshit*/
+#img-container {
+    position: relative;
+}
 
+#img-container::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 100%;
+    height: 100%;
+    border: 5px solid var(--main-color);
+    z-index: -1;
+}
+
+#img-container img {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+}
+
+.team-member {
+    box-shadow: 0 0px 10px 0 rgba(0, 0, 0, 0.2), 0 5px 20px 0 rgba(0, 0, 0, 0.4);
+}
+
+#header-carousel {
+    margin-bottom: 50px;
+}
+
+/*#region NonBullshit*/
 .home-page-containery {
     font-family: 'Poppins', sans-serif;
 }
@@ -60,6 +88,10 @@
     font-weight: 300;
     color: #4a4a4a;
     line-height: 24px;
+}
+
+ul.social-icons {
+    padding: 0;
 }
 
 ul.social-icons li {
@@ -84,12 +116,12 @@ ul.social-icons li a {
 }
 
 ul.social-icons li a:hover {
-    background-color: #f33f3f;
+    background-color: var(--main-color);
     color: #fff;
 }
 
 a.filled-button {
-    background-color: #f33f3f;
+    background-color: var(--main-color);
     color: #fff;
     font-size: 14px;
     text-transform: capitalize;
@@ -108,7 +140,7 @@ a.filled-button:hover {
 .section-heading {
     text-align: left;
     margin-bottom: 60px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 3px solid var(--main-color);
 }
 
 .section-heading h2 {
@@ -134,7 +166,7 @@ a.filled-button:hover {
 
 .best-features h4 {
     font-size: 17px;
-    color: #1a6692;
+    color: var(--main-color);
     margin-bottom: 20px;
 }
 
@@ -169,11 +201,11 @@ a.filled-button:hover {
 }
 
 .best-features ul.featured-list li a:hover {
-    color: #f33f3f;
+    color: var(--main-color);
 }
 
 .best-features ul.featured-list li a:hover::before {
-    background-color: #f33f3f;
+    background-color: var(--main-color);
 }
 
 .best-features .filled-button {
@@ -205,7 +237,7 @@ a.filled-button:hover {
 
 .team-member .thumb-container .hover-effect {
     position: absolute;
-    background-color: rgba(243,63,63,0.9);
+    background-color: var(--main-color);
     top: 0;
     left: 0;
     width: 100%;
@@ -225,9 +257,9 @@ a.filled-button:hover {
 }
 
 .team-member .thumb-container .hover-effect .hover-content ul.social-icons li a:hover {
-                background-color: #fff;
-                color: #f33f3f;
-            }
+    background-color: #fff;
+    color: var(--main-color);
+}
 
 .team-member:hover .hover-effect {
     visibility: visible;
@@ -236,14 +268,14 @@ a.filled-button:hover {
 
 .team-member .down-content h4 {
     font-size: 17px;
-    color: #1a6692;
+    color: var(--main-color);
     margin-bottom: 8px;
 }
 
 .team-member .down-content span {
     display: block;
     font-size: 13px;
-    color: #f33f3f;
+    color: var(--second-color);
     font-weight: 500;
     margin-bottom: 20px;
 }
@@ -259,32 +291,7 @@ a.filled-button:hover {
 /*#region boolshit*/
 
 :root {
-    --blue: #007bff;
-    --indigo: #6610f2;
-    --purple: #6f42c1;
-    --pink: #e83e8c;
-    --red: #dc3545;
-    --orange: #fd7e14;
-    --yellow: #ffc107;
-    --green: #28a745;
-    --teal: #20c997;
-    --cyan: #17a2b8;
-    --white: #fff;
-    --gray: #6c757d;
-    --gray-dark: #343a40;
-    --primary: #D19C97;
-    --secondary: #EDF1FF;
-    --success: #28a745;
-    --info: #17a2b8;
-    --warning: #ffc107;
-    --danger: #dc3545;
-    --light: #fff;
-    --dark: #1C1C1C;
-    --breakpoint-xs: 0;
-    --breakpoint-sm: 576px;
-    --breakpoint-md: 768px;
-    --breakpoint-lg: 992px;
-    --breakpoint-xl: 1200px;
+    
     --font-family-sans-serif: "Poppins",sans-serif;
     --font-family-monospace: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace
 }
@@ -442,13 +449,6 @@ template {
 
 [hidden] {
     display: none !important
-}
-
-.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
-    margin-bottom: .5rem;
-    font-weight: 500;
-    line-height: 1.2;
-    color: #1c1c1c
 }
 
 .h1, h1 {
