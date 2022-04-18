@@ -24,7 +24,7 @@ public class JudgesSeeder : ISeeder
         new Judge()
         {
             Description = "Lorem Ipsum is simply dummy text ",
-            Name = "Angel Valkov",
+            Name = "Galin",
             PictureUrl = "https://res.cloudinary.com/donhvedgr/image/upload/v1649918971/p1_lfwotz.png"
         },        
     };

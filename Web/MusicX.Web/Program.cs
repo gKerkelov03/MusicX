@@ -11,7 +11,6 @@ using MusicX.Data.Models;
 using MusicX.Data.Seeding;
 using MusicX.Services.Mapping;
 using MusicX.Web.ViewModels;
-using System.Reflection;
 using MusicX.Web.BindingModels;
 using MusicX.Services.Models;
 using MusicX.Web.Infrastructure.Extensions;
@@ -67,7 +66,7 @@ var app = builder.Build();
 
 using var serviceScope = ((IApplicationBuilder)app).ApplicationServices.CreateScope();
 var dbContext = serviceScope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-
+dbContext.Database.EnsureDeleted();
 if (dbContext.Database.GetPendingMigrations().Any())
 {
     dbContext.Database.Migrate();

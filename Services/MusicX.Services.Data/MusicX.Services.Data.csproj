@@ -5,10 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Contracts\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\Common\MusicX.Common\MusicX.Common.csproj" />
     <ProjectReference Include="..\..\Data\MusicX.Data.Models\MusicX.Data.Models.csproj" />
     <ProjectReference Include="..\..\Data\MusicX.Data\MusicX.Data.csproj" />

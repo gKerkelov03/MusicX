@@ -23,8 +23,8 @@ namespace MusicX.Services.Data
 
         public async Task<IList<JudgeServiceModel>> GetAllAsync()
         {
-            var asdf = await this.judgesRepository.GetAllAsync();
-            return this.mapper.Map<IEnumerable<JudgeServiceModel>>(asdf).ToList();
+            var judges = await this.judgesRepository.GetAllAsync();
+            return this.mapper.Map<IList<JudgeServiceModel>>(judges);
         }
     }
 }

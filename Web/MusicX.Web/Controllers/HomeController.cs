@@ -13,11 +13,13 @@ public class HomeController : Controller
 {
     private readonly IMapper mapper;
     private readonly IJudgesService judgesService;
+    private readonly ICompetitorsService competitorsService;
 
-    public HomeController(IMapper mapper, IJudgesService judgesService)
+    public HomeController(IMapper mapper, IJudgesService judgesService, ICompetitorsService competitorsService)
     {
         this.mapper = mapper;
         this.judgesService = judgesService;
+        this.competitorsService = competitorsService;
     }
 
     public IActionResult Index() => View();
@@ -28,7 +30,11 @@ public class HomeController : Controller
         return View(this.mapper.Map<IList<JudgeViewModel>>(judges));
     }
 
-    public IActionResult Dashboard() => View();
+    public async Task<IActionResult> Dashboard()
+    {
+        var competitors = await this.competitorsService.GetAllAsync();
+        return View(this.mapper.Map<IList<CompetitorViewModel>>(competitors));
+    }
 
     public IActionResult ContactUs() => View();
 
