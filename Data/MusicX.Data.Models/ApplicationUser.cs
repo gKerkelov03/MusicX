@@ -28,5 +28,6 @@ public class ApplicationUser : IdentityUser<Guid>
 
     public string Description { get; set; }
 
+    public Guid? VotedToId { get; set; }
     public ApplicationUser VotedTo { get; set; }    
 }

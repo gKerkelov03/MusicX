@@ -1,16 +1,21 @@
-﻿@model IList<CompetitorViewModel>
+﻿@using Microsoft.AspNetCore.Identity
+@using MusicX.Data.Models
+@model IList<CompetitorViewModel>
+@inject UserManager<ApplicationUser> userManager;
 
 @section Links {
     <link rel="stylesheet" href="~/css/Dashboard.css" />
 }
 
-@{
-    ViewData["Title"] = "Dashboard";    
+    @{
+    ViewData["Title"] = "Dashboard";
 }
 
 
-@foreach(var competitor in Model)
-{    
+@for (var i = 0; i < Model.Count; i++) 
+{
+    var competitor = Model[i];
+    <p>@competitor.LikesCount</p>
     <div class="card">
         <div class="profile-box">
             <img src="~/assets/menu.png" class="menu-icon"/>
@@ -25,8 +30,29 @@
             </div>
             <a href=@competitor.VideoUrl target="_blank">See</a>
             <div class="profile-bottom">
-                <p>Give it a like</p>
-                <img src="assets/arrow.png">
+                <p>Give it a like</p>                
+                    @if (this.User.Identity.IsAuthenticated)
+                    {                        
+                        var currentUser = await this.userManager.FindByNameAsync(this.User.Identity.Name);
+                        var isLikedState = currentUser.VotedTo != null && currentUser.VotedTo.Id == competitor.Id;
+
+                        <form method="Post" asp-controller="Home" asp-action="LikeClicked">                    
+                            <input type="text" name="competitorId" class="hidden" value="@competitor.Id">
+                            <label for=@("submit" + i)>
+                            @if (isLikedState)
+                            {                                
+                                <i class="fa-solid fa-heart"></i>
+                            }
+                            else            
+                            {
+                                <i class="fa-regular fa-heart"></i> 
+                            }
+                        </label>   
+                    
+                            <input class="hidden" type="text" name="isLikedState" value="@isLikedState.ToString()">
+                            <input type="submit" id=@("submit" + i)  class="hidden">
+                        </form>
+                    }                    
             </div>
         </div> 
     </div> 

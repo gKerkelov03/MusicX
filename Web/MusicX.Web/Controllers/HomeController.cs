@@ -6,6 +6,9 @@ using AutoMapper;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using static MusicX.Common.GlobalConstants;
+using System;
+using Microsoft.AspNetCore.Identity;
+using MusicX.Data.Models;
 
 namespace MusicX.Web.Controllers;
 
@@ -14,15 +17,49 @@ public class HomeController : Controller
     private readonly IMapper mapper;
     private readonly IJudgesService judgesService;
     private readonly ICompetitorsService competitorsService;
+    private readonly UserManager<ApplicationUser> userManager;
 
-    public HomeController(IMapper mapper, IJudgesService judgesService, ICompetitorsService competitorsService)
+    public HomeController(IMapper mapper, IJudgesService judgesService, ICompetitorsService competitorsService, UserManager<ApplicationUser> userManager)
     {
         this.mapper = mapper;
         this.judgesService = judgesService;
         this.competitorsService = competitorsService;
+        this.userManager = userManager;
     }
 
     public IActionResult Index() => View();
+
+    [HttpPost]
+    //TODO: make it work with the binding model
+    public async Task<IActionResult> LikeClicked(Guid competitorId, bool isLikedState /*LikeClickedBindingModel likeClickedModel*/)
+    {
+        var competitor = await this.userManager.FindByIdAsync(competitorId.ToString());
+        var currentUser = await this.userManager.FindByNameAsync(this.User.Identity.Name);        
+
+        if (isLikedState)
+        {
+            currentUser.VotedTo = null;
+            competitor.LikesCount--;
+        }
+        else 
+        {
+            var oldVote = await this.userManager.FindByIdAsync(currentUser?.VotedToId?.ToString());
+            if (oldVote != null)
+            {
+                oldVote.LikesCount--;
+                await this.userManager.UpdateAsync(oldVote);
+            }
+
+
+            currentUser.VotedTo = competitor;
+            competitor.LikesCount++;
+        }
+
+        await this.userManager.UpdateAsync(currentUser);
+        await this.userManager.UpdateAsync(competitor);
+
+        return RedirectToAction("Dashboard");
+    }
 
     public async Task<IActionResult> Judges()
     {
