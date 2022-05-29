@@ -25,5 +25,5 @@ public class CompetitorsService : ICompetitorsService
         var competitors = await this.userManager.Users.Where(x => x.IsCompetitor).ToListAsync();
         var result = this.mapper.Map<IEnumerable<CompetitorServiceModel>>(competitors).ToList();
         return result;
-    }
+    }  
 }

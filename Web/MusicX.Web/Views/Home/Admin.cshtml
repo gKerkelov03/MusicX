@@ -1,9 +1,30 @@
-﻿@section Links {
+﻿@model IList<CompetitorViewModel>
+
+@section Links {
     <link rel="stylesheet" href="~/css/Admin.css" />
 }
-
 @{
     ViewData["Title"] = "Admin";
 }
 
 <div>Admin</div>
+
+@for (var i = 0; i < Model.Count; i++) 
+{
+    var competitor = Model[i];
+    <div>
+        <form method="Post" asp-controller="Home" asp-action="UpdateCompetitor"> 
+             <input type="text" name="Id" class="hidden" value="@competitor.Id">
+
+            <label for="Name"/>
+            <input type="text" name="Name" value="@competitor.Name">
+            <input type="text" name="Age" value="@competitor.Age">
+            <input type="text" name="Description" value="@competitor.Description">
+            <input type="text" name="PictureUrl" value="@competitor.PictureUrl">
+            <input type="text" name="MusicalInstrument" value="@competitor.MusicalInstrument">
+            <input type="text" name="VideoUrl" value="@competitor.VideoUrl">
+
+            <input type="submit" value="Change">
+        </form>
+    </div>
+}

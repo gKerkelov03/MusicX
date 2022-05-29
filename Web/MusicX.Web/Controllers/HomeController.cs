@@ -9,6 +9,7 @@ using static MusicX.Common.GlobalConstants;
 using System;
 using Microsoft.AspNetCore.Identity;
 using MusicX.Data.Models;
+using MusicX.Web.BindingModels;
 
 namespace MusicX.Web.Controllers;
 
@@ -90,13 +91,35 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult Admin()
+    public async Task<IActionResult> Admin()
     {
         if (!this.HttpContext.User.IsInRole(AdministratorRoleName))
         {
             return RedirectToAction("Profile");
         }
 
-        return View();        
+        var competitors = await this.competitorsService.GetAllAsync();
+        return View(this.mapper.Map<IList<CompetitorViewModel>>(competitors));
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> UpdateCompetitor([FromForm]UpdateCompetitorBindingModel changes)
+    {
+        if (!this.HttpContext.User.IsInRole(AdministratorRoleName))
+        {
+            return RedirectToAction("Profile");
+        }
+        var oldCompetitor = await userManager.FindByIdAsync(changes.Id.ToString());
+
+        oldCompetitor.Age = changes.Age;
+        oldCompetitor.Name = changes.Name;
+        oldCompetitor.Description = changes.Description;
+        oldCompetitor.PictureUrl = changes.PictureUrl;
+        oldCompetitor.MusicalInstrument = changes.MusicalInstrument;
+        oldCompetitor.VideoUrl = changes.VideoUrl;
+
+
+        await this.userManager.UpdateAsync(oldCompetitor);
+        return RedirectToAction("Admin");
     }
 }
