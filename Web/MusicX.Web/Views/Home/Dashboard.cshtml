@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="~/css/Dashboard.css" />
 }
 
-    @{
+@{
     ViewData["Title"] = "Dashboard";
 }
 
@@ -15,9 +15,10 @@
 @for (var i = 0; i < Model.Count; i++) 
 {
     var competitor = Model[i];
-    <p>@competitor.LikesCount</p>
+    
     <div class="card">
         <div class="profile-box">
+            <p class="likes">@competitor.LikesCount likes!</p>
             <img src="~/assets/menu.png" class="menu-icon"/>
             <img src="~/assets/setting.png" class="setting-icon"/>
             <img src="@competitor.PictureUrl" class="profile-pic"/>

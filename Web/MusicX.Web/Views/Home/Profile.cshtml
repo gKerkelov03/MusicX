@@ -1,35 +1,56 @@
-﻿@section Links {
+﻿@using Microsoft.AspNetCore.Identity
+@using MusicX.Data.Models
+@section Links {
     <link rel="stylesheet" href="~/css/Profile.css" />
+    <link rel="stylesheet" href="~/css/Admin.css" />
 }
-
+@inject UserManager<ApplicationUser> userManager;
 @{
     ViewData["Title"] = "Profile";
 }
 
-<form method="post" class="signin-form" asp-route-returnUrl=@Url.Content("~/Home/Admin")>
-    @*<div class="form-group mb-3">
-        <label asp-for="Input.Email" class="label">Email</label>
-        <input asp-for="Input.Email" type="text" class="form-control" placeholder="Email">
-        <span asp-validation-for="Input.Email" class="text-danger"></span>
-    </div>
-    <div class="form-group mb-3">
-        <label asp-for="Input.Password" class="label" for="password">Password</label>
-        <input asp-for="Input.Password" type="password" class="form-control" placeholder="Password">
-        <span asp-validation-for="Input.Password" class="text-danger"></span>
-    </div>*@
-    <div class="form-group">
-        <button type="submit" class="form-control btn btn-primary rounded submit px-3">Login</button>
-    </div>
-    <div class="form-group d-md-flex">
-        <div class="w-50 text-left">
-            <label class="checkbox-wrap checkbox-primary mb-0">
-                Remember Me
-                <input type="checkbox" checked>
-                <span class="checkmark"></span>
-            </label>
+@{
+    var currentUser = await userManager.FindByNameAsync(this.User.Identity.Name);
+    
+}
+
+<img src="@currentUser.PictureUrl" class="center"/>
+<h3 class="center">Hi, @currentUser.Name</h3>
+
+
+@if(currentUser.VotedToId != null){
+    <h2>You have voted for: @((await userManager.FindByIdAsync(currentUser.VotedToId?.ToString())).Name)</h2>
+}
+else
+{
+    <h2>You have not yet voted!</h2>
+}
+
+
+@if (!currentUser.IsCompetitor)
+{
+    <h3>Become Competitor: </h3>
+
+    <form class="competitor-edit" method="Post" asp-controller="Home" asp-action="BecomeCompetitor"> 
+        <input type="text" name="Id" class="hidden" value="@currentUser.Id">
+   
+        <label for="Age">Age:</label>
+        <input type="text" name="Age" placeholder="Enter Age">
+
+        <label for="Description">Description:</label>
+        <input type="text" name="Description" placeholder="Enter Description">
+
+        <label for="PictureUrl">PictureUrl:</label>
+        <input type="text" name="PictureUrl" placeholder="Enter PictureUrl">
+
+        <label for="MusicalInstrument">MusicalInstrument:</label>
+        <input type="text" name="MusicalInstrument" placeholder="Enter MusicalInstrument">
+
+        <label for="VideoUrl">VideoUrl:</label>
+        <input type="text" name="VideoUrl" placeholder="Enter VideoUrl">
+
+        <div class="submit-container">
+            <input type="submit" placeholder="Submit">
         </div>
-        <div class="w-50 text-md-right">
-            <a href="#">Forgot Password</a>
-        </div>                                   
-    </div>
-</form>
+    </form>    
+}

@@ -122,4 +122,30 @@ public class HomeController : Controller
         await this.userManager.UpdateAsync(oldCompetitor);
         return RedirectToAction("Admin");
     }
+
+    public async Task<IActionResult> BecomeCompetitor([FromForm]BecomeCompetitorBindingModel data)
+    {
+        if (this.HttpContext.User.IsInRole(AdministratorRoleName))
+        {
+            return RedirectToAction("Admin");
+        }
+
+        if (!this.HttpContext.User.Identity.IsAuthenticated)
+        {
+            return RedirectToAction("Index");
+        }
+
+        var user = await userManager.FindByIdAsync(data.Id.ToString());
+        user.IsCompetitor = true;
+
+        user.Age = data.Age;
+        user.Description = data.Description;
+        user.PictureUrl = data.PictureUrl;
+        user.MusicalInstrument = data.MusicalInstrument;
+        user.VideoUrl = data.VideoUrl;
+
+
+        await this.userManager.UpdateAsync(user);
+        return RedirectToAction("Dashboard");
+    }
 }
