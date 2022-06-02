@@ -15,11 +15,11 @@ public class UsersSeeder : ISeeder
         new ApplicationUser
         {
             Name = "qwest",
-            UserName = "gkerkelov032@abv.bg",
+            UserName = AdministratorUserName,
             Age = 18,
             PictureUrl = "asdf",
             IsCompetitor = false,
-            Email = "gkerkelov032@abv.bg"
+            Email = AdministratorPassword
         },
         new ApplicationUser
         {
@@ -33,7 +33,7 @@ public class UsersSeeder : ISeeder
 
         new ApplicationUser
         {
-            Name = "Hatish Mustafa",
+            Name = "Asen Vasilev",
             UserName = "filleruser1",
             Age = 10,
             MusicalInstrument = "Piano",
@@ -45,7 +45,7 @@ public class UsersSeeder : ISeeder
         },
         new ApplicationUser
         {
-            Name = "Dimitar Habibi",
+            Name = "Dimitar Stoyanov",
             UserName = "filleruser2",
             Age = 10,
             MusicalInstrument = "Guitar",
@@ -57,7 +57,7 @@ public class UsersSeeder : ISeeder
         },
         new ApplicationUser
         {
-            Name = "Ana Maria Baksana",
+            Name = "Ana Maria Petrova",
             UserName = "filleruser3",
             Age = 19,
             MusicalInstrument = "Violin",
@@ -69,7 +69,7 @@ public class UsersSeeder : ISeeder
         },
         new ApplicationUser
         {
-            Name = "Sezgina Berlin",
+            Name = "Alexandra Valentinova",
             UserName = "filleruser4",
             Age = 12,
             MusicalInstrument = "Drums",
@@ -81,7 +81,7 @@ public class UsersSeeder : ISeeder
         },
         new ApplicationUser
         {
-            Name = "Vanio BBambinio konq vihar",
+            Name = "Vencislav Georgiev",
             UserName = "filleruser5",
             Age = 12,
             MusicalInstrument = "Kaval",
